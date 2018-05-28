@@ -1,0 +1,9 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1527513601370" ID="ID_821852919" MODIFIED="1527513699909" TEXT="world">
+<node CREATED="1527513768913" ID="ID_1689170267" MODIFIED="1527513776533" POSITION="right" TEXT="planete"/>
+<node CREATED="1527513778535" ID="ID_222946986" MODIFIED="1527513783495" POSITION="right" TEXT="ia"/>
+<node CREATED="1527513786155" ID="ID_1063998576" MODIFIED="1527513799716" POSITION="left" TEXT="competence"/>
+<node CREATED="1527513801026" ID="ID_475298141" MODIFIED="1527513807986" POSITION="left" TEXT="joueur"/>
+</node>
+</map>
