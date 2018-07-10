@@ -46,6 +46,8 @@ namespace WebGame.API
             services.AddSingleton<CityType>();
             services.AddSingleton<CityInputType>();
             services.AddSingleton<AddCityInputType>();
+            services.AddSingleton<AddCountryInputType>();
+            services.AddSingleton<SetCityInputType>();
 
             var sp = services.BuildServiceProvider();
             services.AddSingleton<ISchema>(new WebGameSchema(new FuncDependencyResolver(type => sp.GetService(type))));

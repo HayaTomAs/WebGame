@@ -17,6 +17,14 @@ namespace WebGame.Data.Repositories
             _db = db;
         }
 
+        public async Task<List<Country>> Get(int id)
+        {
+            var planet = await _db.Planets.Include(x => x.Countries)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            return planet.Countries.ToList();
+        }
+
         public async Task<Country> Get(string name)
         {
             return await _db.Countries.FirstOrDefaultAsync(p => p.Name == name);

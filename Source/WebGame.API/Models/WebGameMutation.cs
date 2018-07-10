@@ -80,6 +80,38 @@ namespace WebGame.API.Models
                     var city = (int)dico["city"];
                     return countryRepository.Add(country, city);
                 });
+
+            Field<PlanetType>(
+                "addCoutry",
+                arguments: new QueryArguments(new[] {
+                    new QueryArgument<NonNullGraphType<AddCountryInputType>> { Name = "countryLink" },
+                    }
+                ),
+                resolve: context =>
+                {
+
+                    var dico = (Dictionary<string, object>)context.Arguments["countryLink"];
+                    var planet = (int)dico["planet"];
+                    var country = (int)dico["country"];
+                    return planetRepository.Add(planet, country);
+                });
+
+
+
+            Field<PlayerType>(
+                "setCity",
+                arguments: new QueryArguments(new[] {
+                    new QueryArgument<NonNullGraphType<SetCityInputType>> { Name = "cityLink" },
+                    }
+                ),
+                resolve: context =>
+                {
+
+                    var dico = (Dictionary<string, object>)context.Arguments["cityLink"];
+                    var player = (int)dico["player"];
+                    var city = (int)dico["city"];
+                    return playerRepository.Add(player, city);
+                });
         }
     }
 }

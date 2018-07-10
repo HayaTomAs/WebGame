@@ -17,6 +17,12 @@ namespace WebGame.Data.Repositories
             _db = db;
         }
 
+
+        public async Task<City> GetById(int id)
+        {
+            var player = await _db.Players.Include(x => x.City).FirstOrDefaultAsync(p => p.Id == id);
+            return player.City;
+        }
         public async Task<List<City>> Get(int id)
         {
             var country = await _db.Countries.Include(x => x.Cities)

@@ -6,6 +6,7 @@ namespace WebGame.Core.Data
 {
     public interface ICountryRepository
     {
+        Task<List<Country>> Get(int id);
         Task<Country> Get(string name);
         Task<Country> GetRandom();
         Task<List<Country>> All();

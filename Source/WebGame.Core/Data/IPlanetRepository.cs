@@ -10,5 +10,6 @@ namespace WebGame.Core.Data
         Task<Planet> GetRandom();
         Task<List<Planet>> All();
         Task<Planet> Add(Planet planet);
+        Task<Planet> Add(int planet, int country);
     }
 }

@@ -54,9 +54,14 @@ namespace WebGame.API.Models
 
 
             Field<CityType>(
-                "city",
+                "cityByName",
                 arguments: new QueryArguments(new QueryArgument<StringGraphType> { Name = "name" }),
-                resolve: context => countryRepository.Get(context.GetArgument<string>("name")));
+                resolve: context => cityRepository.Get(context.GetArgument<string>("name")));
+
+            Field<CityType>(
+                "cityById",
+                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
+                resolve: context => cityRepository.GetById(context.GetArgument<int>("id")));
 
             Field<CityType>(
                 "randomCity",

@@ -38,5 +38,14 @@ namespace WebGame.Data.Repositories
             await _db.SaveChangesAsync();
             return player;
         }
+
+        public async Task<Player> Add(int player, int city)
+        {
+            var storedPlayer = await _db.Players.FirstOrDefaultAsync(p => p.Id == player);
+            var storedCity = await _db.Cities.FirstOrDefaultAsync(p => p.Id == city);
+            storedPlayer.City = storedCity;
+            await _db.SaveChangesAsync();
+            return storedPlayer;
+        }
     }
 }

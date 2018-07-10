@@ -38,5 +38,16 @@ namespace WebGame.Data.Repositories
             await _db.SaveChangesAsync();
             return planet;
         }
+
+        public async Task<Planet> Add(int planet, int country)
+        {
+            var storedCountry = await _db.Countries.FirstOrDefaultAsync(p => p.Id == country);
+            var storedPlanet = await _db.Planets.FirstOrDefaultAsync(p => p.Id == planet);
+            if (storedPlanet.Countries == null)
+                storedPlanet.Countries = new List<Country>();
+            storedPlanet.Countries.Add(storedCountry);
+            await _db.SaveChangesAsync();
+            return storedPlanet;
+        }
     }
 }
